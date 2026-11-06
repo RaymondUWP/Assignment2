@@ -44,6 +44,10 @@ def cost_per_class(annual_cost, credits):
     class_cost = ((annual_cost / (SEMESTERS_PER_YEAR * credits)) * CS1430_CREDITS) / CS1430_MEETINGS_PER_SEMESTER
     return class_cost
 
+def cost_per_four_years(annual_cost):
+    four_year_cost = (annual_cost * 4) + ((annual_cost * 4) * 0.2)
+    return four_year_cost
+
 
 # ---- PROGRAM ----
 
@@ -61,6 +65,7 @@ def main():
         print("3: Coster Per Day")
         print("4: Coster Per Credit")
         print("5: Coster Per Class")
+        print("6: Coster Per Four Years")
 
         choice = input("Choose an option: ")
 
@@ -68,17 +73,19 @@ def main():
             print("Thanks for running the numbers!")
             break
         elif choice == "1":
-            print(f"One semester cost ${cost_per_semester(annual_cost=cost):.2f}")
+            print(f"One semester cost ${cost_per_semester(cost):.2f}")
         elif choice == "2":
-            print(f"One month cost ${cost_per_month(annual_cost=cost):.2f}")
+            print(f"One month cost ${cost_per_month(cost):.2f}")
         elif choice == "3":
-            print(f"One day cost ${cost_per_day(annual_cost=cost):.2f}")
+            print(f"One day cost ${cost_per_day(cost):.2f}")
         elif choice == "4":
-            print(f"One credit cost ${cost_per_credit(annual_cost=cost, credits=credits):.2f}")
-        elif choice == "5":
-            print(f"One class cost ${cost_per_class(annual_cost=cost, credits=credits):.2f}")
+            print(f"One credit cost ${cost_per_credit(cost, credits):.2f}")
+        elif choice == "5": 
+            print(f"One class cost ${cost_per_class(cost, credits):.2f}")
+        elif choice == "6":
+            print(f"Four year cost: ${cost_per_four_years(cost):.2f}")
 
-        # Add a branch for each menu option here.120
+        # Add a branch for each menu option here.
 
 
 # ---- LAUNCH: do not change ----
